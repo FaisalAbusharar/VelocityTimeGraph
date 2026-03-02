@@ -4,6 +4,8 @@ from manim import *
 class SuvatGraph(Scene):
     def construct(self):
 
+        #* Setup the axis
+
         x_min, x_max, x_step = 0, 10, 1
         y_min, y_max, y_step = 0, 20, 2
 
@@ -14,6 +16,10 @@ class SuvatGraph(Scene):
 
         x_label = axes.get_x_axis_label(r"time \, \mathrm{s}")       
         y_label = axes.get_y_axis_label(r"v\, \mathrm{m\,s^{-1}}")  
+
+
+
+        #* Physics stuff
 
         # v = u + at <--- Formula we are using to calculate stuff
         u = 0 #! Initial Velocity
@@ -30,7 +36,10 @@ class SuvatGraph(Scene):
         # y = [float(u + a*t) for t in range(0, 11)]
 
         # line = axes.plot_line_graph(x,y,add_vertex_dots=False, line_color=RED)
-        
+
+
+        #! The line
+
         self.add(axes, x_label, y_label)
 
         new_line = always_redraw(lambda: Line(start=axes.c2p(0,u), end=axes.c2p(t.get_value(), u + a*t.get_value()), color=RED))
