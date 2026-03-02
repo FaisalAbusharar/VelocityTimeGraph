@@ -30,6 +30,7 @@ class SuvatGraph(Scene):
         # y = [float(u + a*t) for t in range(0, 11)]
 
         # line = axes.plot_line_graph(x,y,add_vertex_dots=False, line_color=RED)
+        
         self.add(axes, x_label, y_label)
 
         new_line = always_redraw(lambda: Line(start=axes.c2p(0,u), end=axes.c2p(t.get_value(), u + a*t.get_value()), color=RED))
